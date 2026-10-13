@@ -13,8 +13,7 @@ from pathlib import Path
 
 import pytest
 
-import bunker
-from bunker import engine
+import bunker.engine
 from tests.conftest import NetworkBlocked
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -86,7 +85,7 @@ def test_engine_floor_agrees() -> None:
         found = re.search(r"^ARG ENGINE_VERSION=(\S+)$", dockerfile.read_text(), re.M)
         assert found is not None, "the Dockerfile names no ENGINE_VERSION"
         assert found.group(1) == bunker.ENGINE_CONTRACT
-    assert engine.meets_floor(bunker.ENGINE_CONTRACT, bunker.ENGINE_FLOOR), (
+    assert bunker.engine.meets_floor(bunker.ENGINE_CONTRACT, bunker.ENGINE_FLOOR), (
         "ENGINE_FLOOR is above ENGINE_CONTRACT: the pinned engine would fail bunker doctor"
     )
 
