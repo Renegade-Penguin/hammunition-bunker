@@ -10,6 +10,10 @@ Notable changes, newest first. Versions follow
 
 ## [Unreleased]
 
+### Changed
+
+- GYST callers re-pin from v1.27.0 to v1.31.0 (GYST#327). Publishing is unchanged: `release.yml` publishes only from a `push` of a `v*.*.*` tag, which the new defaults (`allowed-publish-events: push`, `require-tag-ref: true`) allow; a manual run still builds and scans without publishing.
+
 ### Fixed
 
 - `docs/reference.md` said the on-request repeater lists are not listed by `hammunition artifacts`; the engine lists them as unit `repeater-snapshots` from v0.20.0 (D-078). The README names the latest engine release against the pinned one (#7).
